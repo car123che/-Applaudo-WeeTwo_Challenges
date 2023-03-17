@@ -64,6 +64,16 @@
         }
 
 
+        public static void AddPerson()
+        {
+            // Person Objects ( Person do not implements IEntity )
+            Person personOne = new Person(3013216470101, "Carlos Ché", 22);
+            Person personTwo = new Person(3013216470102, "Pedro Aguirre", 30);
+            Person personThree = new Person(3013216470103, "Pablo Herrera", 25);
+
+            //Repository<Person, long> repository = new Repository<Person, long>();
+            //repository.Add(personOne);
+        }
     }
 
 }
