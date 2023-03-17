@@ -25,22 +25,23 @@
             {
                 Console.WriteLine("Book: " + book.Title);
             }
-            Console.WriteLine("");
-
-
+           
             //Validator
-            Console.WriteLine("---- VALITOR TESTS --------- ");
+            Console.WriteLine("\n---- VALITOR TESTS --------- ");
             Validator validator = ChallengesTests.ValidatorTest();
             Console.WriteLine("Validator Has Erros?: " + validator.HasErrors());
             Console.WriteLine("Erros Formated: {0}", validator.GetErrorMessages());
 
 
+            //Repository Get all Overload
+            Console.WriteLine("\n------- Getting Filtered List --------");
+            List<Book> filteredBooks = new List<Book>();
+            filteredBooks = repository.GetAll(b => b.Price > 15);
+            foreach (var book in filteredBooks)
+            {
+                Console.WriteLine(book.toString());
+            }
         }
-
-     
-
-       
-
 
     }
 
