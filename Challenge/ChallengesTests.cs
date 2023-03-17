@@ -74,6 +74,18 @@
             //Repository<Person, long> repository = new Repository<Person, long>();
             //repository.Add(personOne);
         }
+
+        public static void EmployeeTest()
+        {
+            var employee = new Employee(2);
+            employee.MonthlySalary = 4000;
+            employee.Commission = 100;
+            employee.Bonus = 200;
+
+            Console.WriteLine("\nPayment Amount: " + employee.GetPaymentAmount());
+        }
     }
+
+
 
 }
