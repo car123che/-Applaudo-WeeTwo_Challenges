@@ -35,9 +35,9 @@
             return _entities.Values.ToList();
         }
 
-        public List<T> GetAll(Func<T, bool> filter)
+        public List<T> GetAll(Func<T, bool> filter )
         {
-            return _entities.Values.Where(filter).ToList();
+            return _entities.Values.Where(filter).ToList(); 
         }
     }
 
