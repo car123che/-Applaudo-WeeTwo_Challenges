@@ -41,6 +41,8 @@
             {
                 Console.WriteLine(book.toString());
             }
+
+            ChallengesTests.EmployeeTest();
         }
 
     }
