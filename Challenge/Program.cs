@@ -7,8 +7,6 @@
             Repository<Book, int> repository = new Repository<Book, int>();
             repository = AddBooks();
 
-
-
             //Get One Book
             var bookFour = repository.Get(3);
             var bookFive= repository.Get(4);
@@ -28,6 +26,14 @@
                 Console.WriteLine("Book: " + book.Title);
             }
             Console.WriteLine("");
+
+
+            //Validator
+            Console.WriteLine("---- VALITOR TESTS --------- ");
+            Validator validator = ValidatorTest();
+            Console.WriteLine("Validator Has Erros?: " + validator.HasErrors());
+
+
         }
 
         public static Repository<Book, int>  AddBooks()
@@ -48,5 +54,49 @@
             return repository;
 
         }
+
+        public static Validator ValidatorTest()
+        {
+            Validator validator = new Validator((data) => data.Length >= 5 && data.Length <= 10);
+            string dataOne = "cinco";
+            string dataTwo = "abc";
+            string dataThree = "";
+            string dataLengthErrorMessage = "Data Length should be greater or equal than 5";
+
+            if (validator.IsValid(dataOne))
+            {
+                Console.WriteLine("Data: '{0}'.  Is valid", dataOne);
+            }
+            else
+            {
+                Console.WriteLine("Data: '{0}'.  Is Invalid", dataOne);
+            }
+
+            if (validator.IsValid(dataTwo, dataLengthErrorMessage))
+            {
+                Console.WriteLine("Data: '{0}'.  Is valid", dataTwo);
+            }
+            else
+            {
+                Console.WriteLine("Data: '{0}'.  Is Invalid", dataTwo);
+            }
+
+
+            if (validator.IsValid(dataThree, dataLengthErrorMessage))
+            {
+                Console.WriteLine("Data: '{0}'.  Is valid", dataThree);
+            }
+            else
+            {
+                Console.WriteLine("Data: '{0}'.  Is Invalid", dataThree);
+            }
+
+            return validator;
+
+        }
+
+
     }
+
+
 }
